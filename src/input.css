@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
+
+@layer base{
+    @font-face {
+        src: url("./../fonts/Dana/woff2/DanaFaNum-Regular.woff2") format('woff2');
+        font-family: "Dana";
+        font-display: swap;
+    }
+    @font-face {
+        src: url("../fonts/Dana/woff2/DanaFaNum-Medium.woff2") format('woff2');
+        font-family: "Dana Medium";
+        font-display: swap;
+    }
+    @font-face {
+        src: url('../fonts/Dana/woff2/DanaFaNum-DemiBold.woff2') format('woff2');
+        font-family: "Dana DemiBold";
+        font-display: swap;
+    }
+    @font-face {
+        src: url("../fonts/Morabba/woff2/Morabba-Light.woff2") format('woff2');
+        font-family: "Morabba Light";
+        font-display: swap;
+    }
+    @font-face {
+        src: url("../fonts/Morabba/woff2/Morabba-Medium.woff2") format('woff2');
+        font-family: "Morabba Medium";
+        font-display: swap;
+    }
+    @font-face {
+        src: url("../fonts/Morabba/woff2/Morabba-Bold.woff2") format('woff2');
+        font-family: "Morabba Bold";
+        font-display: swap;
+    }
+}
+
+.open{
+        @apply flex;
+    }
+.overlayVisible{
+    @apply visible opacity-100;
+}
+
+@layer components{
+    .submenu{
+        @apply hidden flex-col gap-y-3 mt-3 pr-7 text-sm delay-75 child:transition-colors text-zinc-600 dark:text-white child-hover:text-orange-300;
+    }
+
+    .overlay{
+        @apply invisible opacity-0  md:hidden fixed inset-0 w-full h-full bg-black/40 z-10 transition-all;
+    }
+
+
+    .circle {
+        @apply flex justify-center items-center border rounded-full;
+    }
+    .circle--main {
+        @apply absolute left-0 right-0 bottom-0 mx-auto translate-y-1/2 hidden md:flex;
+    }
+    .circle--xl {
+        @apply w-[203px] h-[203px] border-white/25;
+    }
+    .circle--lg {
+        @apply w-[145px] h-[145px] border-white/50;
+    }
+    .circle--md {
+        @apply w-[95px] h-[95px] border-white/80;
+    }
+
+    @media screen and (min-width: 480px) {
+        html.dark .products{
+            background-image: url("../images/product-bg.png");
+        }
+        .products{
+            background: linear-gradient(rgba(243, 244, 246, 0.65), rgba(243, 244, 246, 0.65)),url("../images/product-bg.png");
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+    }
+
+    .section-title,.section-subtitle{
+        @apply text-zinc-700 dark:text-white;
+    }
+    .section-title{
+        @apply font-MorabbaMedium text-2xl md:text-5xl font-medium md:leading-[48px];
+    }
+    .section-subtitle{
+        @apply inline-block font-MorabbaLight text-lg md:text-3xl font-light mt-0.5 md:mt-1.5 md:leading-[48px];
+    }
+    .section-link{
+        @apply flex items-center md:gap-x-1 pr-3 pl-1 md:h-10 text-orange-300 text-base md:text-xl tracking-tightest cursor-pointer rounded-md transition-colors md:hover:bg-orange-300/20;
+    }
+
+    .offer{
+        @apply relative text-gray-400 tracking-tightest;
+    }
+    .offer::after{
+        content: "";
+        width: 100%;
+        height: 1px;
+        position: absolute;
+        inset: 0;
+        top: -3px;
+        margin: auto;
+        background-color: #EF4444;
+    }
+
+    .category-item1{
+        background: linear-gradient(270deg ,rgba(0, 0, 0, 0.6) 33.85% , rgba(243, 244, 246, 0.1) 100%),url("../images/categories/category-right.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .category-item2{
+        background: linear-gradient(270deg ,rgba(0, 0, 0, 0.6) 33.85% , rgba(243, 244, 246, 0.1) 100%),url("../images/categories/category-left.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .swiper-button-prev-custom,
+    .swiper-button-next-custom{
+        @apply  flex-center size-9 md:size-10 rounded-full shadow-normal bg-white text-zinc-700 dark:bg-zinc-700 dark:text-white transition-colors hover:bg-gray-300 dark:hover:bg-white dark:hover:text-zinc-700;
+    }
+    @keyframes  ping{
+        75%, 100% {
+            transform: scale(1.5);
+            opacity: 0;
+        }
+    }
+    .animate-ping {
+        animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+    .wrapper{
+        @apply w-full mt-52 mb-32 py-25 rounded-2xl mx-auto bg-white dark:bg-zinc-700 shadow-normal;
+    }
+}
+
+@layer utilities{
+    .flex-between{
+        @apply flex items-center justify-between;
+    }
+    .flex-center{
+        @apply flex items-center justify-center;
+    }
+}

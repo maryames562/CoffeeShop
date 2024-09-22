@@ -1,0 +1,19 @@
+@font-face {
+    font-family: "Dana Medium";
+    src: url("../fonts/Dana-FaNum-Medium.ttf") format("truetype");
+}
+.wrapper{
+    text-align: center;
+}
+.back{
+    color: #FDBA74 ;
+    font-size: 20px;
+}
+p.successful{
+    font-size: 30px;
+    color: #10B981 ;
+}
+p.error{
+    font-size: 30px;
+    color: #F87171 ;
+}
